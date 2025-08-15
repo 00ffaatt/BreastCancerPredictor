@@ -5,7 +5,10 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix, accuracy_score
 
 
-df = pd.read_csv("https://github.com/00ffaatt/BreastCancerPredictor/blob/main/Breast_cancer_dataset.csv")
+url = "https://raw.githubusercontent.com/00ffaatt/BreastCancerPredictor/main/Breast_cancer_dataset.csv"
+
+df = pd.read_csv(url)
 
 
-print(df)
+
+
