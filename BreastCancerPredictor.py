@@ -35,6 +35,13 @@ X_pca = pca.fit_transform(X)
 
 # Accuracy score after preprocessing: 0.9649122807017544
 
+
+# helper method for visualizing confusion matrix
+def print_confusion_matrix(cm):
+    print("True Positive: " + str(cm[0][0]) + " | False Positive: " + str(cm[0][1]))
+    print("False Negative: " + str(cm[1][0]) + " | True Negative: " + str(cm[1][1]))
+
+
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 
 logreg = LogisticRegression()
@@ -45,5 +52,9 @@ y_pred = logreg.predict(X_test)
 cm = confusion_matrix(y_test, y_pred)
 score = accuracy_score(y_test, y_pred)
 
-print(cm)
-print(score)
+print_confusion_matrix(cm)
+print("Model accuracy score: " + str(score))
+
+X_reconstructed = pca.inverse_transform(X_pca)
+recon_loss = np.mean((X - X_reconstructed) ** 2)
+print("PCA reconstruction loss: " + str(recon_loss))
