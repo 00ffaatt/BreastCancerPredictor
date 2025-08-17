@@ -1,5 +1,7 @@
 import pandas as pd
 import numpy as np
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix, accuracy_score
@@ -8,9 +10,25 @@ from sklearn.metrics import confusion_matrix, accuracy_score
 url = "https://raw.githubusercontent.com/00ffaatt/BreastCancerPredictor/main/Breast_cancer_dataset.csv"
 df = pd.read_csv(url)
 
+# Pre-processing of data
+df.drop(["id", "Unnamed: 32"], axis=1, inplace=True)
+df["diagnosis"] = df["diagnosis"].map({"M": 1, "B": 0})
+# Standard scaling
+stdScaler = StandardScaler()
+X = stdScaler.fit_transform(X)
+# PCA transformation
+pca = PCA()
+X_pca = pca.fit_transform(X)
+
+# *** PCA was performed after standardization of data to avoid biases in components from
+# inputs params with different scales ***
+
+print(df)
+
 # The diagnosis is what we are after as the dependent data (y)
-X = df.iloc[:, 2:32]
-y = df.iloc[:, 1]
+X = df.iloc[:, 1:31]
+y = df.iloc[:, 0]
+
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
