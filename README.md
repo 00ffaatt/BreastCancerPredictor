@@ -4,7 +4,7 @@ Training Logarithmic Regression model using data from https://www.kaggle.com/dat
 
 # Steps Taken
 
-## 1. Preprocessing data
+## 1. Data Preprocessing
 
 - removed data columns such as ID and the last column with all NaN values
 - replaced malignancy column values with binary (1 = Malignant, 2 = Benign)
