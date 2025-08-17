@@ -4,8 +4,23 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix, accuracy_score
 
+## imports the training dataset provided from the link https://www.kaggle.com/datasets/wasiqaliyasir/breast-cancer-dataset?resource=download
+url = "https://raw.githubusercontent.com/00ffaatt/BreastCancerPredictor/main/Breast_cancer_dataset.csv"
+df = pd.read_csv(url)
 
-df = pd.read_csv("file://localhost/path/to/breast-cancer/Breast_cancer_dataset.csv")
+# The diagnosis is what we are after as the dependent data (y)
+X = df.iloc[:, 2:32]
+y = df.iloc[:, 1]
 
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
-print(df)
+logreg = LogisticRegression()
+logreg.fit(X_train, y_train)
+
+y_pred = logreg.predict(X_test)
+
+cm = confusion_matrix(y_test, y_pred)
+score = accuracy_score(y_test, y_pred)
+
+print(cm)
+print(score)
