@@ -4,7 +4,7 @@ Training Logarithmic Regression model using data from https://www.kaggle.com/dat
 
 # Steps Taken
 
-1. Preprocessing data
+## 1. Preprocessing data
 
 - removed data columns such as ID and the last column with all NaN values
 - replaced malignancy column values with binary (1 = Malignant, 2 = Benign)
@@ -12,11 +12,11 @@ Training Logarithmic Regression model using data from https://www.kaggle.com/dat
 - performed PCA with 2 components on the independent data (X)
 - Split the data into training and testing groups using a standard seed.
 
-2. Training the model
+## 2. Training the model
 
 - a Logarithmic Regression model was trained based on the preprocessed training data.
 
-3. Evaluating the model
+## 3. Evaluating the model
 
 - Used sklearn's accuracy_score to evaluate the effectiveness of the model before (~0.947)
   and after (~0.965) standardization+PCA analysis
