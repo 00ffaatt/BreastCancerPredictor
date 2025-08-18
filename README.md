@@ -1,6 +1,6 @@
 # Python program using sklearn to predict Breast cancer malignancy using biopsy cell features
 
-Training Logarithmic Regression model using data from https://www.kaggle.com/datasets/wasiqaliyasir/breast-cancer-dataset?resource=download
+Training Logistic Regression model using data from https://www.kaggle.com/datasets/wasiqaliyasir/breast-cancer-dataset?resource=download
 
 # Steps Taken
 
@@ -14,10 +14,17 @@ Training Logarithmic Regression model using data from https://www.kaggle.com/dat
 
 ## 2. Training the model
 
-- a Logarithmic Regression model was trained based on the preprocessed training data.
+- a Logistic Regression model was trained based on the preprocessed training data.
 
 ## 3. Evaluating the model
 
 - Used sklearn's accuracy_score to evaluate the effectiveness of the model before (~0.947)
   and after (~0.965) standardization+PCA analysis
 - calculated the PCA reconstruction loss using the inverse_transform function to be ~0.368
+
+## Further exploration
+
+(Some ideas for increasing accuracy)
+
+- Use different numbers of principle components during PCA: more components for higher accuracy at the cost of computing power
+- Trying different types of regressions (e.g. decision tree, regressions with penalty terms)
