@@ -26,5 +26,6 @@ Training Logistic Regression model using data from https://www.kaggle.com/datase
 
 (Some ideas for increasing accuracy)
 
+- Play around with different thresholds for the logistic regression output
 - Use different numbers of principle components during PCA: more components for higher accuracy at the cost of computing power
 - Trying different types of regressions (e.g. decision tree, regressions with penalty terms)
